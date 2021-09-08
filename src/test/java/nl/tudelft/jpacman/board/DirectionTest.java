@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.board;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.assertj.core.api.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -41,5 +42,16 @@ public class DirectionTest {
         Direction west = Direction.valueOf("WEST");
         assertThat(west.getDeltaX()).isEqualTo(-1);
         assertThat(west.getDeltaY()).isEqualTo(0);
+    }
+
+    @Test
+    void testNull(){
+        Assertions.assertThrows(NullPointerException.class,()->{Direction.valueOf(null);});
+    }
+
+    @Test
+    void testInvailid(){
+        Assertions.assertThrows(IllegalArgumentException.class,()->{Direction.valueOf("");});
+        Assertions.assertThrows(IllegalArgumentException.class,()->{Direction.valueOf("north");});
     }
 }
