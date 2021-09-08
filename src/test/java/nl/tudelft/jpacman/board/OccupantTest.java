@@ -41,7 +41,6 @@ class OccupantTest {
      */
     @Test
     void testOccupy() {
-
         //Occupying Null square
         Assertions.assertThrows(AssertionError.class, ()->{
             unit.occupy(null);
@@ -63,6 +62,7 @@ class OccupantTest {
     void testReoccupy() {
         Square square1 = new BasicSquare();
         Square square2 = new BasicSquare();
+
         //Reoccupy with same block
         unit.occupy(square1);
         unit.occupy(square1);
