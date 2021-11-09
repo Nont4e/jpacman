@@ -2,8 +2,6 @@ plugins {
     id 'application'
     id 'java'
     id 'jacoco'
-    id 'checkstyle'
-    id 'pmd'
     id 'com.github.spotbugs' version '1.7.1'
 }
 
@@ -68,16 +66,6 @@ jacocoTestReport {
     }
 }
 
-checkstyle {
-    configFile file("checkstyle.xml")
-    ignoreFailures = false
-}
-
-pmd {
-    ruleSetFiles "pmd-rules.xml"
-    ruleSets = []
-}
-
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
         xml.enabled = false
@@ -89,11 +77,7 @@ task staticAnalysis(type: GradleBuild) {
     tasks = [
         'clean',
         'checkstyleMain',
-        'checkstyleTest',
         'checkstyleDefaultTest',
-        'pmdMain',
-        'pmdTest',
-        'pmdDefaultTest',
         'spotbugsMain',
         'spotbugsTest',
         'spotbugsDefaultTest',

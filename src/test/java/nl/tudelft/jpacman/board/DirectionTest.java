@@ -2,7 +2,6 @@ package nl.tudelft.jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -46,12 +45,12 @@ public class DirectionTest {
 
     @Test
     void testNull(){
-        Assertions.assertThrows(NullPointerException.class,()->{Direction.valueOf(null);});
+        Assertions.assertThrows(NullPointerException.class,() -> { Direction.valueOf(null); });
     }
 
     @Test
     void testInvailid(){
-        Assertions.assertThrows(IllegalArgumentException.class,()->{Direction.valueOf("");});
-        Assertions.assertThrows(IllegalArgumentException.class,()->{Direction.valueOf("north");});
+        Assertions.assertThrows(IllegalArgumentException.class,() -> { Direction.valueOf(""); });
+        Assertions.assertThrows(IllegalArgumentException.class,() -> { Direction.valueOf("north"); });
     }
 }
